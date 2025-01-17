@@ -20,7 +20,7 @@ Exemplo:
 Se o número informado for 5, a saída será:
 
 
-#ex8:
+#ex7:
 Fazer um programa que calcula a média de uma lista de números.
 Entrada: Uma lista de números, como [10, 20, 30, 40]
 Saída: "A média é: X"
@@ -28,7 +28,7 @@ Dica: A média é a soma de todos os números dividida pelo número total de ele
 
 
 
-#ex9:
+#ex8:
 Fazer um programa que recebe um valor em metros e converte para centímetros e milímetros.
 Entrada: $metros
 Saída: "X metros equivalem a Y centímetros e Z milímetros"
@@ -36,7 +36,7 @@ Dica: Para converter metros para centímetros multiplica-se por 100, e para mil�
 
 
 
-#ex10:
+#ex9:
 Fazer uma função que calcula a soma de todos os números de 1 até um número informado.
 Entrada: $limite
 Saída: "A soma dos números de 1 até $limite é: Y"
