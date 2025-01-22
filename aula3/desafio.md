@@ -1,9 +1,4 @@
 
-
-Exercício 8: Crie um array com 5 números e crie uma função para encontrar o maior número no array.
-
-
-
 <!-- 
 Exercício 1: Crie uma página simples que tenha um título, uma lista não ordenada com 3 itens e um parágrafo explicativo.
 Tarefa: Use tags <ul>, <li>, <p>, <h1>, e adicione estilos básicos como fontes, cores e espaçamento com CSS. -->
@@ -26,3 +21,6 @@ Tarefa: A função deve alterar o texto do parágrafo de "Olá, Mundo!" para "Te
 
 <!-- Exercício 7: Crie um contador de visitas na página. Toda vez que a página for carregada, o contador deve ser incrementado e armazenado no localStorage.
 Tarefa: Utilize localStorage para salvar o valor do contador e mostre-o na página. -->
+
+<!-- 
+Exercício 8: Crie um array com 5 números e crie uma função para encontrar o maior número no array. -->
