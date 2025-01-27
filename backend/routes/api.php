@@ -23,4 +23,4 @@ Route::get('teste', function(){
     dd('chegou');
 });
 
-Route::get('palindromo', [RevisaoController::class, 'palindromo']);
+Route::get('palindromo/{palavra}', [RevisaoController::class, 'palindromo']);
