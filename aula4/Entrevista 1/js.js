@@ -4,8 +4,6 @@
 // javascript
 // Copiar
 // console.log(reverterString("JavaScript")); // "tpircSavaJ"
-
-resultado = '';
 palavra = { 
     Original: '',
     Invertida: ''
@@ -18,8 +16,7 @@ palavraInvertida = function(str){
         if (palavra.Original == palavra.Invertida){
             return 'A palavra é um palíndromo';
         } else {
-            resultado = "Não é um palíndromo";
-            return resultado;
+            return  "Não é um palíndromo";
     }
 }
 
