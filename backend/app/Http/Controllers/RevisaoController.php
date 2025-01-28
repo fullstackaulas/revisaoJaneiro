@@ -6,18 +6,19 @@ use Illuminate\Http\Request;
 
 class RevisaoController extends Controller
 {
-    public function palindromo($palavra){
+    public function palindromo($palavra)
+    {
 
         $palavraInvertida = strrev($palavra);
-        if ($palavraInvertida == $palavra){
-            return response()->json (true, 200);
-        }
-        else{
-            return response()->json (false, 200);
+        if ($palavraInvertida == $palavra) {
+            return response()->json(true, 200);
+        } else {
+            return response()->json(false, 200);
         }
     }
 
-    public function pedido(){
+    public function pedido()
+    {
 
         $pedido = [
             "pedido_id" => "123456",
@@ -55,17 +56,85 @@ class RevisaoController extends Controller
             "data_pedido" => "2025-01-27T14:30:00",
             "previsao_entrega" => "2025-02-01"
         ];
-        
-        
 
-          return response()->json(($pedido['itens']), 200);
-          
+
+
+        return response()->json(($pedido['itens']), 200);
+
     }
 
 
 
+    # ex1:
+# fazer uma condicional que printa bom dia, boa tarde ou boa noite Sr. ou Sra. $Nome
+# Entrada: $sexo / $nome // Bom dia Sr. Matheus
+# saida: Bom dia Senhor Matheus
+# descoberta: como pegar o horário do dia
+    public function cumprimento(Request $request)
+    {
+        date_default_timezone_set('America/Sao_Paulo');
+        $sexo = $request->sexo;
+        $nome = $request->nome;
+        $hora = date('H');
 
 
+        // $pronome = $sexo == 'M' ? 'Sr':'Sra';
+
+        if ($sexo == 'M') {
+            $pronome = 'Sr';
+        } else {
+            $pronome = 'Sra';
+        }
+
+        if ($hora >= 6 && $hora < 12) {
+            $cumprimento = 'Bom dia';
+        } else if ($hora >= 12 && $hora < 18) {
+            $cumprimento = 'Boa tarde';
+        } else {
+            $cumprimento = 'Boa noite';
+        }
+
+        $frase = $cumprimento . ' ' . $pronome . ' ' . $nome;
+
+        return response($frase, 200);
+
+    }
+
+    public function contarVogais(Request $request)
+    {
+        $frase = $request->frase;
+        $frase = strtolower($frase);
+
+        $vogais = ['a', 'e', 'i', 'o', 'u'];
+        $caracteresEspeciais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '{', '}', '[', ']', '\\', '|', ';', ':', '"', '\'', '<', '>', ',', '.', '/', '?', '~', '`'];
+    
+        $vogaisQtd = 0;
+        $espacosQtd = 0;
+        $consoantesQtd = 0;
+        $caracteresEspeciaisQtd = 0;
+
+        for ($i = 0; $i < strlen($frase); $i++) {
+            if ($frase[$i] == ' ') {
+                $espacosQtd++;
+            } else if (in_array($frase[$i], $vogais)) {
+                $vogaisQtd++;
+            } else if (in_array($frase[$i], $caracteresEspeciais)) {
+                $caracteresEspeciaisQtd++;
+            } else {
+                $consoantesQtd++;
+            }
+        }
+
+        $resposta = [
+            'consoantes' => $consoantesQtd,
+            'vogais' => $vogaisQtd,
+            'espacos' => $espacosQtd,
+            'caracteresEspeciais' => $caracteresEspeciaisQtd,
+            'total' => strlen($frase)
+        ];
+
+        return response($resposta, 200);
+    }
 
 
 
