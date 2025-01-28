@@ -137,5 +137,22 @@ class RevisaoController extends Controller
     }
 
 
+//     Fazer uma função que calcula a soma de todos os números de 1 até um número informado.
+// Entrada: $limite
+// Saída: "A soma dos números de 1 até $limite é: Y"
+// Dica: Você pode usar um laço for ou a fórmula da soma de uma progressão aritmética.
+
+
+    public function contarNumeros($limite) {
+        //$limite = $request->limite;
+        $soma = 0;
+
+        for($i=0; $i<$limite; $i++){
+            $soma += $i;
+        }
+        return response($soma, 200);
+    }
+
+
 
 }

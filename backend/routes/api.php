@@ -27,3 +27,4 @@ Route::get('palindromo/{palavra}', [RevisaoController::class, 'palindromo']);
 Route::get('pedido', [RevisaoController::class, 'pedido']);
 Route::post('cumprimento', [RevisaoController::class, 'cumprimento']);
 Route::post('contarVogais', [RevisaoController::class, 'contarVogais']);
+Route::get('contarNumeros/{limite}', [RevisaoController::class, 'contaNumeros']);
