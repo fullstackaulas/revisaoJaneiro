@@ -3,6 +3,8 @@
 use App\Http\Controllers\RevisaoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AnotacaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,15 @@ Route::get('pedido', [RevisaoController::class, 'pedido']);
 Route::post('cumprimento', [RevisaoController::class, 'cumprimento']);
 Route::post('contarVogais', [RevisaoController::class, 'contarVogais']);
 Route::get('contarNumeros/{limite}', [RevisaoController::class, 'contarNumeros']);
+
+
+
+Route::get('usuarios', [UserController::class, 'getUsuarios']);
+Route::post('anotacaoNuvem', [AnotacaoController::class, 'insertAnotacaoNuvem']);
+
+
+Route::get('anotacao', [AnotacaoController::class, 'getAnotacao']);
+Route::post('anotacao', [AnotacaoController::class, 'insertAnotacao']);
+Route::get('anotacao/{id}', [AnotacaoController::class, 'getAnotacaoOne']);
+Route::patch('anotacao/{id}', [AnotacaoController::class, 'updateAnotacao']);
+Route::delete('anotacao/{id}', [AnotacaoController::class, 'deleteAnotacao']);
