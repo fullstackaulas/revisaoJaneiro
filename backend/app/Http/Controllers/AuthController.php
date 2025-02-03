@@ -14,7 +14,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'gerarSenha']]);
     }
 
     /**
@@ -42,7 +42,9 @@ class AuthController extends Controller
     {
         return response()->json(auth()->user());
     }
-
+    public function gerarSenha($senha){
+        return response (bcrypt($senha), 200);
+    }
     /**
      * Log the user out (Invalidate the token).
      *
