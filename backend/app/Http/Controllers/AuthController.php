@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
-
 
 class AuthController extends Controller
 {
@@ -46,11 +42,9 @@ class AuthController extends Controller
     {
         return response()->json(auth()->user());
     }
-
     public function gerarSenha($senha){
         return response (bcrypt($senha), 200);
     }
-
     /**
      * Log the user out (Invalidate the token).
      *
