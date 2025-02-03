@@ -30,6 +30,8 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
     Route::get('gerarSenha/{senha}', [AuthController::class, 'gerarSenha']);
+    Route::get('quemSouEu', [AuthController::class, 'me']);
+    
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
