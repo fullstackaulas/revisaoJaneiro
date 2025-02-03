@@ -22,6 +22,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->getKey();
     }
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *
