@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnotacaoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AgendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('teste', function(){
+Route::get('teste', function () {
     dd('chegou');
 });
 
@@ -58,3 +59,18 @@ Route::post('anotacao', [AnotacaoController::class, 'insertAnotacao']);
 Route::get('anotacao/{id}', [AnotacaoController::class, 'getAnotacaoOne']);
 Route::patch('anotacao/{id}', [AnotacaoController::class, 'updateAnotacao']);
 Route::delete('anotacao/{id}', [AnotacaoController::class, 'deleteAnotacao']);
+
+
+Route::middleware('auth:api')->group(function () {
+
+    Route::prefix('agenda')->group(function () {
+
+        Route::get('', [AgendaController::class, 'listar']);
+        Route::post('', [AgendaController::class, 'inserir']);
+        Route::get('{id}', [AgendaController::class, 'pegarUm']);
+
+        // Route::get('anotacao/{id}', [AgendaController::class, 'getAnotacaoOne']);
+        // Route::patch('anotacao/{id}', [AgendaController::class, 'updateAnotacao']);
+        // Route::delete('anotacao/{id}', [AgendaController::class, 'deleteAnotacao']);
+    });
+});
