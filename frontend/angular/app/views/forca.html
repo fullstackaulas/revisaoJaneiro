@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .forca-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+            width: 200px;
+            height: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .forca {
+            position: absolute;
+            width: 100px;
+            height: 200px;
+            border-bottom: 5px solid black;
+        }
+
+        .poste {
+            position: absolute;
+            left: 20px;
+            bottom: 0;
+            width: 5px;
+            height: 180px;
+            background-color: black;
+        }
+
+        .barra {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 60px;
+            height: 5px;
+            background-color: black;
+        }
+
+        .corda {
+            position: absolute;
+            left: 75px;
+            top: 5px;
+            width: 2px;
+            height: 25px;
+            background-color: black;
+        }
+
+        .cabeca {
+            position: absolute;
+            left: 60px;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid black;
+        }
+
+        .corpo {
+            position: absolute;
+            left: 73px;
+            top: 60px;
+            width: 5px;
+            height: 50px;
+            background-color: black;
+        }
+
+        .braco-esq, .braco-dir {
+            position: absolute;
+            top: 75px;
+            width: 30px;
+            height: 5px;
+            background-color: black;
+        }
+
+        .braco-esq {
+            left: 50px;
+            transform: rotate(-30deg);
+        }
+
+        .braco-dir {
+            left: 75px;
+            transform: rotate(30deg);
+        }
+
+        .perna-esq, .perna-dir {
+            position: absolute;
+            top: 110px;
+            width: 30px;
+            height: 5px;
+            background-color: black;
+        }
+
+        .perna-esq {
+            left: 50px;
+            transform: rotate(30deg);
+        }
+
+        .perna-dir {
+            left: 75px;
+            transform: rotate(-30deg);
+        }
+
+        .palavra {
+            font-size: 24px;
+            letter-spacing: 8px;
+            margin-top: 20px;
+        }
+
+        .letras-usadas {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+        }
+
+        .mensagem {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jogo da Forca</h1>
+    <div> 
+        <input type="text" ng-model="palavra">
+        <input type="button" ng-click="salvarPalavra()" value="Salvar Palavra"> 
+    </div>
+
+    <div> 
+        <div class="forca-container">
+        <div class="forca">
+            <div class="poste"></div>
+            <div class="barra"></div>
+            <div class="corda"></div>
+            <div class="cabeca"></div>
+            <div class="corpo"></div>
+            <div class="braco-esq"></div>
+            <div class="braco-dir"></div>
+            <div class="perna-esq"></div>
+            <div class="perna-dir"></div>
+        </div>
+    </div>
+
+    <p class="palavra">_ A _ _ A</p>
+    <p class="letras-usadas">Letras erradas: X, J, P</p>
+    <p class="mensagem">Tente novamente!</p>
+
+    </div>
+
+</body>
+</html>
