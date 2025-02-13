@@ -7,6 +7,11 @@ angular.module('meuApp', ['ui.router'])
         templateUrl: 'app/views/home.html',
         controller: 'TesteController'
     })
+    .state('forca',{
+        url:'/forca',
+        templateUrl: 'app/views/forca.html',
+        controller: 'ForcaController'
+    })
 
 
     $urlRouterProvider.otherwise('/');
