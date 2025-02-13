@@ -3,12 +3,6 @@ angular.module('meuApp').controller('TesteController', function ($scope) {
     console.log('abriu');
     $scope.variavel = "Ola mundo";
 
-    $scope.jogo = {
-        tentativa: '',
-        acertou: false,
-        trapaca: false,
-        errou: false
-    }
 
 
     $scope.trapacear = function () {
@@ -16,8 +10,20 @@ angular.module('meuApp').controller('TesteController', function ($scope) {
     }
 
     $scope.recomecar = function () {
-        $scope.numAleatorio = Math.floor(Math.random() * 50) + 1;
+        $scope.numAleatorio = Math.floor(Math.random() * 20) + 1;
         $scope.qtdTentativas = 0;
+        $scope.jogo = {
+            tentativa: '',
+            acertou: false,
+            trapaca: false,
+            errou: false,
+            aproximado: 0
+        }
+    
+        $scope.numerosTentado = [];
+    
+        $scope.jogo.trapaca = false;
+
     }
 
     $scope.recomecar();
@@ -25,33 +31,46 @@ angular.module('meuApp').controller('TesteController', function ($scope) {
     $scope.tentativa = function (event) {
         if (event.keyCode === 13) {
             console.log('enter pressionado');
-            if ($scope.jogo.tentativa == $scope.numAleatorio) {
-                $scope.jogo.acertou = true;
+
+            $scope.jogo.aproximado = $scope.jogo.tentativa - $scope.numAleatorio;
+            if($scope.jogo.aproximado <0)
+                $scope.jogo.aproximado = $scope.jogo.aproximado * -1;
+
+            console.log($scope.jogo.aproximado);
+
+            if (!$scope.numerosTentado.includes($scope.jogo.tentativa)) {
+                $scope.numerosTentado.push($scope.jogo.tentativa);
+                if ($scope.jogo.tentativa == $scope.numAleatorio) {
+                    $scope.jogo.acertou = true;
+                }
+                else {
+                    $scope.qtdTentativas++;
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Errooooooou",
+                        timer: 500
+                    });
+
+                }
             }
             else {
-                $scope.qtdTentativas++;
 
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: "Errooooooou",
-                    timer: 500
+                    text: "Você ja tentou esse numeroooooo (surtei)",
+                    timer: 2000
                 });
-
             }
         }
         else {
-            console.log(event.keyCode);
+           // console.log(event.keyCode);
         }
     }
 
-
-
-
-//PROXIMA AULA: NUMEROS QUE O USUARIO JA TENTOU
-// BATATA QUENTE! SE TIVER X NUMERO PRA CIMA, VERMELHO, SE FOR X PRA BAIXO AMARELO, ENFIM...
-
-//FAZER MULTIPLAYER
+    //FAZER MULTIPLAYER
 
 
 });
