@@ -1,0 +1,18 @@
+Resumo de Fluxo:
+Escolher uma palavra secreta aleatoriamente. - ok
+Mostrar a palavra secreta oculta (como _ _ _ _). - ok
+
+Solicitar ao jogador para adivinhar uma letra.
+Verificar se a letra está correta:
+Se sim, revelar a letra nas posições certas.
+Se não, diminuir as tentativas restantes e registrar a letra errada.
+
+
+Repetir até que:
+O jogador adivinhe todas as letras (vitória).
+O jogador esgote todas as tentativas (derrota).
+Considerações:
+O número de tentativas deve ser limitado (geralmente 6 tentativas).
+O jogador não pode tentar letras repetidas.
+O jogo termina quando uma das condições de vitória ou derrota é atendida.
+Esse é o esqueleto básico de lógica para o jogo da Forca. A implementação pode variar dependendo da plataforma (web, console, etc.), mas essa estrutura serve para qualquer implementação básica.

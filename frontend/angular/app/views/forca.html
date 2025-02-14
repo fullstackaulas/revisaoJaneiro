@@ -1,222 +1,245 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Forca</title>
     <style>
         body {
-    font-family: 'Poppins', Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
+            font-family: 'Poppins', Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
-h1 {
-    font-size: 32px;
-    color: #333;
-    margin-top: 20px;
-}
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-top: 20px;
+        }
 
-.forca-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    position: relative;
-    width: 220px;
-    height: 260px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+        .forca-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+            width: 220px;
+            height: 260px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-.forca {
-    position: absolute;
-    width: 100px;
-    height: 200px;
-    border-bottom: 5px solid black;
-}
+        .forca {
+            position: absolute;
+            width: 100px;
+            height: 200px;
+            border-bottom: 5px solid black;
+        }
 
-.poste, .barra, .corda, .cabeca, .corpo, .braco-esq, .braco-dir, .perna-esq, .perna-dir {
-    position: absolute;
-    background-color: black;
-}
+        .poste,
+        .barra,
+        .corda,
+        .cabeca,
+        .corpo,
+        .braco-esq,
+        .braco-dir,
+        .perna-esq,
+        .perna-dir {
+            position: absolute;
+            background-color: black;
+        }
 
-.poste {
-    left: 20px;
-    bottom: 0;
-    width: 5px;
-    height: 180px;
-}
+        .poste {
+            left: 20px;
+            bottom: 0;
+            width: 5px;
+            height: 195px;
+        }
 
-.barra {
-    left: 20px;
-    top: 0;
-    width: 60px;
-    height: 5px;
-}
+        .barra {
+            left: 20px;
+            top: 0;
+            width: 60px;
+            height: 5px;
+        }
 
-.corda {
-    left: 75px;
-    top: 5px;
-    width: 2px;
-    height: 25px;
-}
+        .corda {
+            left: 75px;
+            top: 5px;
+            width: 2px;
+            height: 25px;
+        }
 
-.cabeca {
-    left: 60px;
-    top: 30px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 3px solid black;
-    background-color: #f8d7da;
-}
+        .cabeca {
+            left: 60px;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid black;
+            background-color: #f8d7da;
+        }
 
-.corpo {
-    left: 73px;
-    top: 60px;
-    width: 5px;
-    height: 50px;
-}
+        .corpo {
+            left: 73px;
+            top: 60px;
+            width: 5px;
+            height: 50px;
+        }
 
-.braco-esq, .braco-dir {
-    top: 75px;
-    width: 30px;
-    height: 5px;
-}
+        .braco-esq,
+        .braco-dir {
+            top: 75px;
+            width: 30px;
+            height: 5px;
+        }
 
-.braco-esq {
-    left: 50px;
-    transform: rotate(-30deg);
-}
+        .braco-esq {
+            left: 50px;
+            transform: rotate(-30deg);
+        }
 
-.braco-dir {
-    left: 75px;
-    transform: rotate(30deg);
-}
+        .braco-dir {
+            left: 75px;
+            transform: rotate(30deg);
+        }
 
-.perna-esq, .perna-dir {
-    top: 110px;
-    width: 30px;
-    height: 5px;
-}
+        .perna-esq,
+        .perna-dir {
+            top: 110px;
+            width: 30px;
+            height: 5px;
+        }
 
-.perna-esq {
-    left: 50px;
-    transform: rotate(30deg);
-}
+        .perna-esq {
+            left: 50px;
+            transform: rotate(30deg);
+        }
 
-.perna-dir {
-    left: 75px;
-    transform: rotate(-30deg);
-}
+        .perna-dir {
+            left: 75px;
+            transform: rotate(-30deg);
+        }
 
-.palavra {
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 15px;
-    margin-top: 25px;
-    color: #333;
-    background-color: #fff;
-    padding: 12px 25px;
-    display: inline-block;
-    border-radius: 12px;
-    border: 3px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+        .palavra {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 15px;
+            margin-top: 25px;
+            color: #333;
+            background-color: #fff;
+            padding: 12px 25px;
+            display: inline-block;
+            border-radius: 12px;
+            border: 3px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-.letras-usadas {
-    margin-top: 20px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #ff3b3b;
-    background-color: #ffe6e6;
-    padding: 10px 18px;
-    display: inline-block;
-    border-radius: 8px;
-    border: 2px solid #ff3b3b;
-    box-shadow: 0 4px 6px rgba(255, 59, 59, 0.2);
-}
+        .letras-usadas {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff3b3b;
+            background-color: #ffe6e6;
+            padding: 10px 18px;
+            display: inline-block;
+            border-radius: 8px;
+            border: 2px solid #ff3b3b;
+            box-shadow: 0 4px 6px rgba(255, 59, 59, 0.2);
+        }
 
-.mensagem {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 15px;
-    color: #007bff;
-}
+        .mensagem {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #007bff;
+        }
 
-.input-container {
-    margin: 20px 0;
-}
+        .input-container {
+            margin: 20px 0;
+        }
 
-input[type="text"], input[type="password"], input[type="button"] {
-    font-size: 18px;
-    padding: 10px;
-    margin: 8px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
-}
+        input[type="text"],
+        input[type="password"],
+        input[type="button"] {
+            font-size: 18px;
+            padding: 10px;
+            margin: 8px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
 
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
 
-input[type="button"] {
-    background-color: #28a745;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        input[type="button"] {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-input[type="button"]:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-}
-
-
+        input[type="button"]:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Jogo da Forca</h1>
 
-    <div class="input-container"> 
+    <div class="input-container" ng-show="passoJogo == 1">
         <input type="password" ng-model="palavra">
-        <input type="button" ng-click="salvarPalavra()" value="Salvar Palavra"> 
+        <input type="button" ng-click="salvarPalavra()" value="Salvar Palavra">
     </div>
-
-    <div class="input-container"> 
-        <input type="text" ng-model="letras">
-        <input type="button" ng-click="armazenaLetras()" value="Salvar letras">
-    </div>
-
-    <div class="forca-container">
-        <div class="forca">
-            <div class="poste"></div>
-            <div class="barra"></div>
-            <div class="corda"></div>
-            <div class="cabeca"></div>
-            <div class="corpo"></div>
-            <div class="braco-esq"></div>
-            <div class="braco-dir"></div>
-            <div class="perna-esq"></div>
-            <div class="perna-dir"></div>
+    <div ng-show="passoJogo == 2">
+        <div class="input-container">
+            <input type="text" ng-model="letras">
+            <input type="button" ng-click="armazenaLetras()" value="Tentar" maxlength="1">
         </div>
+
+        <div class="forca-container">
+            <div class="forca">
+                <div class="poste"></div>
+                <div class="barra"></div>
+                <div class="corda"></div>
+                <div class="cabeca" ng-show="qtdErros>=1"></div>
+                <div class="corpo" ng-show="qtdErros>=2"></div>
+                <div class="braco-esq" ng-show="qtdErros>=3"></div>
+                <div class="braco-dir" ng-show="qtdErros>=4"></div>
+                <div class="perna-esq" ng-show="qtdErros>=5"></div>
+                <div class="perna-dir" ng-show="qtdErros>=6"></div>
+            </div>
+        </div>
+
+        <p class="palavra">{{palavraResolvida}}</p>
+        <p class="letras-usadas">{{letrasErradas}}</p>
+        <p class="mensagem">{{mensagem}}</p>
+        <p class="letras-usadas">Tentativas: {{qtdErros}}</p>
     </div>
-
-    <p class="palavra">_ A _ _ A</p>
-    <p class="letras-usadas">{{letrasUsadas}}</p>
-    <p class="mensagem">{{mensagem}}</p>
-
 </body>
+
 </html>
+
+
+
+
+
+O JOGO DEVE SER POSSIVEL RESETAR!!!
+ALINHAR ALGUM LUGAR BONITO PARA POSICIONAR A QUANTIDADE DE Tentativas
+SWALALERT CASO BATA 7 TENTATIVAS (MOSTRE A PALAVRA E RECOMECE O JOGO)
