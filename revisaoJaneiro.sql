@@ -114,3 +114,6 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `revisaoJaneiro`.`jogoDaVelha` (`id` INT NOT NULL AUTO_INCREMENT , `jogador` ENUM('x','o') NOT NULL , `posicao` INT NOT NULL , `idJogo` INT NOT NULL , `created_by` INT NULL , `created_at` INT NULL , `updated_by` INT NULL , `updated_at` INT NULL , `deleted_by` INT NULL , `deleted_at` INT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `jogoDaVelha` CHANGE `created_at` `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP, CHANGE `updated_at` `updated_at` DATETIME on update CURRENT_TIMESTAMP NULL, CHANGE `deleted_at` `deleted_at` DATETIME NULL;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JogoDaVelhaController;
 use App\Http\Controllers\RevisaoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,12 @@ Route::get('anotacao/{id}', [AnotacaoController::class, 'getAnotacaoOne']);
 Route::patch('anotacao/{id}', [AnotacaoController::class, 'updateAnotacao']);
 Route::delete('anotacao/{id}', [AnotacaoController::class, 'deleteAnotacao']);
 
+
+
+Route::prefix('jogoDaVelha')->group(function(){
+    Route::get('carregarPosicoes/{idJogo}', [JogoDaVelhaController::class, 'carregarPosicoes']);
+    Route::post('inserir', [JogoDaVelhaController::class, 'inserir']);
+});
 
 Route::middleware('auth:api')->group(function () {
 
