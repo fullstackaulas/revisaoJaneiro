@@ -12,12 +12,11 @@ angular.module('meuApp', ['ui.router'])
         templateUrl: 'app/views/forca.html',
         controller: 'ForcaController'
     })
-    .state('JogoDaVelha',{
-        url:'/JogoDaVelha',
-        templateUrl: 'app/views/JogoDaVelha.html',
+    .state('jogoDaVelha',{
+        url:'/jogoDaVelha/:var1/:var2',
+        templateUrl: 'app/views/jogoDaVelha.html',
         controller: 'JogoDaVelhaController'
     })
-
 
     $urlRouterProvider.otherwise('/');
 
