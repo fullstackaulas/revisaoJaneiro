@@ -87,6 +87,57 @@ angular.module('meuApp')
             post.posicao = posicao;
             post.idJogo = $scope.idJogo;
             $http.post($URL + 'api/jogoDaVelha/inserir', post).then(function (response) {
+
+                if (response.status == 201) {
+                    if (response.data.checarVitoria == 'Deu velha!') {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Deu velha!",
+                            timer: 5000
+                        });
+                    }
+                    else if (response.data.checarVitoria == 'Jogador O venceu!') {
+
+                        if ($scope.jogador == 'o') {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Boaaaaa",
+                                text: "Você venceu!!!!",
+                                timer: 6000
+                            });
+                        } else if ($scope.jogador == 'x') {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Ruim demais!!! Perdeu",
+                                timer: 6000
+                            });
+                        }
+
+                    }
+                    else if (response.data.checarVitoria == 'Jogador X venceu!') {
+
+                        if ($scope.jogador == 'x') {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Boaaaaa",
+                                text: "Você venceu!!!!",
+                                timer: 6000
+                            });
+                        } else if ($scope.jogador == 'o') {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Ruim demais!!! Perdeu",
+                                timer: 6000
+                            });
+                        }
+
+                    }
+
+                }
+
             }, function (error) {
                 Swal.fire({
                     icon: "error",
