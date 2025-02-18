@@ -101,5 +101,5 @@ angular.module('meuApp')
 
 
         intervalId = setInterval(carregaPosicoes, 3000);
-
+        carregaPosicoes();
     });
