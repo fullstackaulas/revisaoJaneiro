@@ -56,6 +56,32 @@ angular.module('meuApp')
         }
 
         $scope.inserirPosicao = function (posicao) {
+            jogador = $scope.jogador;
+            if (posicao == 1) {
+                $scope.matriz.pos1 = jogador;
+            } else if (posicao == 2) {
+                $scope.matriz.pos2 = jogador;
+            } else if (posicao == 3) {
+                $scope.matriz.pos3 = jogador;
+            } else if (posicao == 4) {
+                $scope.matriz.pos4 = jogador;
+            } else if (posicao == 5) {
+                $scope.matriz.pos5 = jogador;
+            } else if (posicao == 6) {
+                $scope.matriz.pos6 = jogador;
+            } else if (posicao == 7) {
+                $scope.matriz.pos7 = jogador;
+            } else if (posicao == 8) {
+                $scope.matriz.pos8 = jogador;
+            } else if (posicao == 9) {
+                $scope.matriz.pos9 = jogador;
+            }
+
+
+
+
+
+
             post = {};
             post.jogador = $scope.jogador;
             post.posicao = posicao;
@@ -74,6 +100,6 @@ angular.module('meuApp')
 
 
 
-        intervalId = setInterval(carregaPosicoes, 250);
+        intervalId = setInterval(carregaPosicoes, 3000);
 
     });
