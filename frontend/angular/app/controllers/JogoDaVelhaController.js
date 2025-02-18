@@ -74,6 +74,6 @@ angular.module('meuApp')
 
 
 
-        intervalId = setInterval(carregaPosicoes, 1000);
+        intervalId = setInterval(carregaPosicoes, 250);
 
     });
