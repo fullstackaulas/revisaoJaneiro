@@ -5,7 +5,8 @@ angular.module('meuApp')
 
         $scope.idJogo = $stateParams.var1;
         $scope.jogador = $stateParams.var2;
-        $URL = 'http://localhost:8000/'
+        // $URL = 'http://localhost:8000/'
+        $URL = 'https://jogodavelhaback.consitech.com.br/'
 
 
         $scope.matriz = {
